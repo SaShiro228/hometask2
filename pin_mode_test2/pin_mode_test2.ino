@@ -1,5 +1,4 @@
 void setup() {
-  // put your setup code here, to run once:
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);  
   pinMode(7, OUTPUT);
@@ -42,14 +41,13 @@ void dinamek() {
 
 
 void svetodiods (){
-  while (exite == 1){
-    for(i = 0;i < 8; i++){
-      digitalWrite(leds[i], 1);
-      delay(10);
-      if (i == 7){
-        exite == 0;     
-      }
-    }
+  for(i = 0;i < 8; i++){
+    digitalWrite(leds[i], 1);
+    delay(10);
+  }
+  for(i = 0;i<8; i++){
+    digitalWrite(leds[i], 1);
+    delay(10);
   }
 }
 
@@ -74,11 +72,12 @@ void Zumer(){
 void loop(){ 
   if (digitalRead(4) == 1){
     x = x + 1;
+    delay(100);
   }
   if (digitalRead(3) == 1){
     x = x - 1;
   }
-  if(x >= 8){
+  if(x >= 4){
     x = 0;
   }
   if (x <= -1) {
@@ -96,4 +95,4 @@ void loop(){
   Serial.println(x);
   digitalWrite(5, 0);
   
-}
+} 
